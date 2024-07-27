@@ -41,7 +41,8 @@ function addExperience() {
 
 function addSkill() {
     const container = document.getElementById('skills-container');
-    const skillCount = container.children.length / 2 + 1;
+    const labels = container.getElementsByTagName('label');
+    const skillCount = labels.length + 1; // Number of labels equals number of skills
     const label = document.createElement('label');
     label.setAttribute('for', `skill${skillCount}`);
     label.textContent = `${skillCount}.`;
