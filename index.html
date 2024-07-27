@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Resume Maker</h1>
+    <form action="">
+        <div id="PersonalInfo">
+            <h2>Personal Info</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name"><br><br>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email"><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="number" id="phone"><br><br>
+            <label for="Country">Country of Residence:</label>
+            <input type="text" id="Country"><br><br>
+            <label for="state">State of Residence:</label>
+            <input type="text" id="State"><br><br>
+            <label for="li">LinkedIn:</label>
+            <input type="url" id="li"><br><br>
+            <label for="gh">GitHub:</label>
+            <input type="url" id="gh"><br><br>
+        </div>
+        
+        <div id="Skills">
+            <h2>Skills</h2>
+            <label for="skills" id="numb">1.</label>
+            <input type="text" id="skills"><br><br>
+        </div>
+        <button type="button" onclick="addSkill()">Add</button>
+        
+            <div id="Experience">
+            <h2>Experience</h2>
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" name="jobTitle"><br><br>
+            <label for="company">Company:</label>
+            <input type="text" name="company"><br><br>
+            <label for="tenure">Tenure:</label>
+            <input type="text" name="tenure"><br><br>
+            <label for="location">Location:</label>
+            <input type="text" name="location"><br><br>
+            <label for="responsibilities">Additional notes:</label>
+            <textarea name="responsibilities" rows="4" cols="50"></textarea><br><br><br>
+        </div>
+        <button type="button" onclick="addExperience()">Add</button>
+        
+        <div id="Education">
+            <h2>Education</h2>
+            <label for="degree">Degree:</label>
+            <input type="text" id="degree"><br><br>
+            <label for="university">University:</label>
+            <input type="text" id="university"><br><br>
+            <label for="years">Years spent:</label>
+            <input type="text" id="years"><br><br>
+            <label for="gpa">GPA:</label>
+            <input type="text" id="gpa"><br><br><br>
+        </div>
+        <button type="button" onclick="addEducation()">Add</button>
+        
+        <div id="Languages">
+            <h2>Languages</h2>
+            <label for="language">Language spoken:</label>
+            <input type="text" id="language"><br><br>
+            <label for="proficiency">Proficiency:</label>
+            <input type="text" id="proficiency"><br><br>
+        </div>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+    </form>
+</body>
+</html>
