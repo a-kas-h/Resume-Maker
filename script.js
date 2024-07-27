@@ -30,7 +30,7 @@ function addSkill() {
 function addEducation() {
     const eduDiv = document.createElement('div');
     eduDiv.innerHTML = `
-    <label for="degree">Degree:</label>
+            <label for="degree">Degree:</label>
             <input type="text" id="degree"><br><br>
             <label for="university">University:</label>
             <input type="text" id="university"><br><br>
@@ -40,4 +40,16 @@ function addEducation() {
             <input type="text" id="gpa"><br><br>
     `;
     document.getElementById('Education').appendChild(eduDiv);
+}
+
+function addLanguage(){
+    const langDiv = document.createElement('div');
+    langDiv.innerHTML = `
+            <label for="language">Language spoken:</label>
+            <input type="text" id="language"><br><br>
+            <label for="proficiency">Proficiency:</label>
+            <input type="text" id="proficiency"><br><br>
+    `;
+    document.getElementById('Languages').appendChild(langDiv);
+
 }
