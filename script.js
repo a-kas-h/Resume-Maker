@@ -1,3 +1,27 @@
+let currentSection = 0;
+
+function showSection(index) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section, i) => {
+        section.classList.toggle('active', i === index);
+    });
+}
+
+function nextSection() {
+    const sections = document.querySelectorAll('.section');
+    if (currentSection < sections.length - 1) {
+        currentSection++;
+        showSection(currentSection);
+    }
+}
+
+function previousSection() {
+    if (currentSection > 0) {
+        currentSection--;
+        showSection(currentSection);
+    }
+}
+
 function addExperience() {
     const experienceDiv = document.createElement('div');
     experienceDiv.innerHTML = `
@@ -12,19 +36,22 @@ function addExperience() {
         <label for="responsibilities">Additional notes:</label>
         <textarea name="responsibilities" rows="4" cols="50"></textarea><br><br><br>
     `;
-    document.getElementById('Experience').appendChild(experienceDiv);
+    document.getElementById('experience-container').appendChild(experienceDiv);
 }
 
 function addSkill() {
-    const skillDiv = document.createElement('div');
-    var numb = Number(document.getElementById('numb').innerHTML)+1;
-    document.getElementById('numb').removeAttribute('id');
-    var lab = numb.toString();
-    skillDiv.innerHTML= `
-        <label for="skills" id="numb">${lab}.</label>
-        <input type="text" id="skills"><br><br>
-    `;
-    document.getElementById('Skills').appendChild(skillDiv);
+    const container = document.getElementById('skills-container');
+    const skillCount = container.children.length / 2 + 1;
+    const label = document.createElement('label');
+    label.setAttribute('for', `skill${skillCount}`);
+    label.textContent = `${skillCount}.`;
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('id', `skill${skillCount}`);
+    container.appendChild(label);
+    container.appendChild(input);
+    container.appendChild(document.createElement('br'));
+    container.appendChild(document.createElement('br'));
 }
 
 function addEducation() {
@@ -53,3 +80,7 @@ function addLanguage(){
     document.getElementById('Languages').appendChild(langDiv);
 
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSection(currentSection);
+});

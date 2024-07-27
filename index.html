@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Resume Maker</h1>
     <form action="">
-        <div id="PersonalInfo">
+        <div id="PersonalInfo" class="section">
             <h2>Personal Info</h2>
             <label for="name">Name:</label>
             <input type="text" id="name"><br><br>
@@ -25,53 +26,79 @@
             <input type="url" id="li"><br><br>
             <label for="gh">GitHub:</label>
             <input type="url" id="gh"><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
         </div>
         
-        <div id="Skills">
+        <div id="Skills" class="section">
             <h2>Skills</h2>
-            <label for="skills" id="numb">1.</label>
-            <input type="text" id="skills"><br><br>
+            <div id="skills-container">
+                <label for="skill1">1.</label>
+                <input type="text" id="skill1"><br><br>
+            </div>
+            <button type="button" onclick="addSkill()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
         </div>
-        <button type="button" onclick="addSkill()">Add</button>
         
-            <div id="Experience">
+        <div id="Experience" class="section">
             <h2>Experience</h2>
-            <label for="jobTitle">Job Title:</label>
-            <input type="text" name="jobTitle"><br><br>
-            <label for="company">Company:</label>
-            <input type="text" name="company"><br><br>
-            <label for="tenure">Tenure:</label>
-            <input type="text" name="tenure"><br><br>
-            <label for="location">Location:</label>
-            <input type="text" name="location"><br><br>
-            <label for="responsibilities">Additional notes:</label>
-            <textarea name="responsibilities" rows="4" cols="50"></textarea><br><br><br>
+            <div id="experience-container">
+                <label for="jobTitle1">Job Title:</label>
+                <input type="text" name="jobTitle"><br><br>
+                <label for="company1">Company:</label>
+                <input type="text" name="company"><br><br>
+                <label for="tenure1">Tenure:</label>
+                <input type="text" name="tenure"><br><br>
+                <label for="location1">Location:</label>
+                <input type="text" name="location"><br><br>
+                <label for="responsibilities1">Additional notes:</label>
+                <textarea name="responsibilities" rows="4" cols="50"></textarea><br><br><br>
+            </div>
+            <button type="button" onclick="addExperience()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
         </div>
-        <button type="button" onclick="addExperience()">Add</button>
         
-        <div id="Education">
+        <div id="Education" class="section">
             <h2>Education</h2>
-            <label for="degree">Degree:</label>
-            <input type="text" id="degree"><br><br>
-            <label for="university">University:</label>
-            <input type="text" id="university"><br><br>
-            <label for="years">Years spent:</label>
-            <input type="text" id="years"><br><br>
-            <label for="gpa">GPA:</label>
-            <input type="text" id="gpa"><br><br><br>
+            <div id="education-container">
+                <label for="degree1">Degree:</label>
+                <input type="text" id="degree1"><br><br>
+                <label for="university1">University:</label>
+                <input type="text" id="university1"><br><br>
+                <label for="years1">Years spent:</label>
+                <input type="text" id="years1"><br><br>
+                <label for="gpa1">GPA:</label>
+                <input type="text" id="gpa1"><br><br><br>
+            </div>
+            <button type="button" onclick="addEducation()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
         </div>
-        <button type="button" onclick="addEducation()">Add</button>
         
-        <div id="Languages">
+        <div id="Languages" class="section">
             <h2>Languages</h2>
-            <label for="language">Language spoken:</label>
-            <input type="text" id="language"><br><br>
-            <label for="proficiency">Proficiency:</label>
-            <input type="text" id="proficiency"><br><br><br>
+            <div id="languages-container">
+                <label for="language1">Language spoken:</label>
+                <input type="text" id="language1"><br><br>
+                <label for="proficiency1">Proficiency:</label>
+                <input type="text" id="proficiency1"><br><br><br>
+            </div>
+            <button type="button" onclick="addLanguage()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="submit">Submit</button>
+                <input type="reset" value="Clear all fields">
+            </div>
         </div>
-        <button type="button" onclick="addLanguage()">Add</button><br><br>        
-        <input type="submit" value="Submit">
-        <input type="reset" value="Clear all fields">
     </form>
 </body>
 </html>
