@@ -62,7 +62,7 @@ function addEducation() {
             <p>___________________________________________________________________<p>
             <label for="degree">Degree:</label>
             <input type="text" id="degree"><br><br>
-            <label for="university">University:</label>
+            <label for="university">University/School:</label>
             <input type="text" id="university"><br><br>
             <label for="years">Years spent:</label>
             <input type="text" id="years"><br><br>
