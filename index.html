@@ -74,7 +74,7 @@
                 <input type="text" id="university1"><br><br>
                 <label for="years1">Years spent:</label>
                 <input type="text" id="years1"><br><br>
-                <label for="gpa1">GPA:</label>
+                <label for="gpa1">GPA/Percentage:</label>
                 <input type="text" id="gpa1"><br><br><br>
             </div>
             <button type="button" onclick="addEducation()">Add</button><br><br>
@@ -90,7 +90,12 @@
                 <label for="language1">Language spoken:</label>
                 <input type="text" id="language1"><br><br>
                 <label for="proficiency1">Proficiency:</label>
-                <input type="text" id="proficiency1"><br><br><br>
+                <select id="proficiency1">
+                    <option value="native">native/billingual</option>
+                    <option value="professional proficiency">professional proficiency</option>
+                    <option value="ltd proficiency">limited working proficiency</option>
+                    <option value="elementary">elementary proficiency</option>
+                </select><br><br><br>
             </div>
             <button type="button" onclick="addLanguage()">Add</button><br><br>
             <div class="nav-buttons">

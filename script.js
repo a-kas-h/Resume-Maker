@@ -25,6 +25,7 @@ function previousSection() {
 function addExperience() {
     const experienceDiv = document.createElement('div');
     experienceDiv.innerHTML = `
+        <p>___________________________________________________________________<p>
         <label for="jobTitle">Job Title:</label>
         <input type="text" name="jobTitle"><br><br>
         <label for="company">Company:</label>
@@ -58,27 +59,33 @@ function addSkill() {
 function addEducation() {
     const eduDiv = document.createElement('div');
     eduDiv.innerHTML = `
+            <p>___________________________________________________________________<p>
             <label for="degree">Degree:</label>
             <input type="text" id="degree"><br><br>
             <label for="university">University:</label>
             <input type="text" id="university"><br><br>
             <label for="years">Years spent:</label>
             <input type="text" id="years"><br><br>
-            <label for="gpa">GPA:</label>
-            <input type="text" id="gpa"><br><br>
+            <label for="gpa">GPA/Percentage:</label>
+            <input type="text" id="gpa"><br><br><br>
     `;
-    document.getElementById('Education').appendChild(eduDiv);
+    document.getElementById('education-container').appendChild(eduDiv);
 }
 
 function addLanguage(){
     const langDiv = document.createElement('div');
     langDiv.innerHTML = `
+            <p>___________________________________________________________________<p>
             <label for="language">Language spoken:</label>
             <input type="text" id="language"><br><br>
             <label for="proficiency">Proficiency:</label>
-            <input type="text" id="proficiency"><br><br>
-    `;
-    document.getElementById('Languages').appendChild(langDiv);
+            <select id="proficiency">
+                <option value="native">native/billingual</option>
+                <option value="professional proficiency">professional proficiency</option>
+                <option value="ltd proficiency">limited working proficiency</option>
+                <option value="elementary">elementary proficiency</option>
+            </select><br><br><br>`;
+    document.getElementById('languages-container').appendChild(langDiv);
 
 }
 
