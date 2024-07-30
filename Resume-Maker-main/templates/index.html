@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <script src="{{url_for('static',filename='script.js')}}" defer></script>
+</head>
+<body>
+    <h1>Resume Maker</h1>
+    <form action="/register" method="post">
+        <div id="PersonalInfo" class="section">
+            <h2>Personal Info</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="user_name"><br><br>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="user_email"><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="number" id="phone" name="user_phone"><br><br>
+            <label for="Country">Country of Residence:</label>
+            <input type="text" id="Country" name="user_country"><br><br>
+            <label for="state">State of Residence:</label>
+            <input type="text" id="State" name="user_state"><br><br>
+            <label for="li">LinkedIn:</label>
+            <input type="url" id="li" name="user_linkedin"><br><br>
+            <label for="gh">GitHub:</label>
+            <input type="url" id="gh" name="user_github"><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
+        </div>
+        
+        <div id="Skills" class="section">
+            <h2>Skills</h2>
+            <div id="skills-container">
+                <label for="skill1">1.</label>
+                <input type="text" id="skill1" name="user_skill[]"><br><br>
+            </div>
+            <button type="button" onclick="addSkill()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
+        </div>
+        
+        <div id="Experience" class="section">
+            <h2>Experience</h2>
+            <div id="experience-container">
+                <label for="jobTitle1">Job Title:</label>
+                <input type="text" id="jobTitle1" name="jobitles[]"><br><br>
+                <label for="company1">Company:</label>
+                <input type="text" id="company1" name="companies[]"><br><br>
+                <label for="tenure1">Tenure:</label>
+                <input type="text" id="tenure1" name="tenures[]"><br><br>
+                <label for="location1">Location:</label>
+                <input type="text" id="location1" name="locations[]"><br><br>
+                <label for="responsibilities1">Additional notes:</label>
+                <textarea  id="responsibilities1" name="responsibilities[]" rows="4" cols="50"></textarea><br><br><br>
+            </div>
+            <button type="button" onclick="addExperience()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
+        </div>
+        
+        <div id="Education" class="section">
+            <h2>Education</h2>
+            <div id="education-container">
+                <label for="degree1">Degree:</label>
+                <input type="text" id="degree1" name="degrees[]"><br><br>
+                <label for="university1">University:</label>
+                <input type="text" id="university1" name="universities[]"><br><br>
+                <label for="years1">Years spent:</label>
+                <input type="text" id="years1" name="years[]"><br><br>
+                <label for="gpa1">GPA:</label>
+                <input type="text" id="gpa1" name="gpas[]"><br><br><br>
+            </div>
+            <button type="button" onclick="addEducation()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="button" onclick="nextSection()">Next</button>
+            </div>
+        </div>
+        
+        <div id="Languages" class="section">
+            <h2>Languages</h2>
+            <div id="languages-container">
+                <label for="language1">Language spoken:</label>
+                <input type="text" id="language1" name="languages[]"><br><br>
+                <label for="proficiency1">Proficiency:</label>
+                <input type="text" id="proficiency1" name="proficiency[]"><br><br><br>
+            </div>
+            <button type="button" onclick="addLanguage()">Add</button><br><br>
+            <div class="nav-buttons">
+                <button type="button" onclick="previousSection()">Previous</button>
+                <button type="submit">Submit</button>
+                <input type="reset" value="Clear all fields">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
