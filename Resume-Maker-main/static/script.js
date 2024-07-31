@@ -25,18 +25,18 @@ function previousSection() {
 function addExperience() {
     const experienceDiv = document.createElement('div');
     experienceDiv.innerHTML = `
-        <label for="jobTitle">Job Title:</label>
-        <input type="text" name="jobtitles[]"><br><br>
-        <label for="company">Company:</label>
-        <input type="text" name="companies[]"><br><br>
-        <label for="tenure">Tenure:</label>
-        <input type="text" name="tenures[]"><br><br>
-        <label for="location">Location:</label>
-        <input type="text" name="locations[]"><br><br>
-        <label for="responsibilities">Additional notes:</label>
-        <textarea name="responsibilities[]" rows="4" cols="50"></textarea><br><br><br>
+        <label for="jobTitle1">Job Title:</label>
+        <input type="text" id="jobTitle1" name="jobitles[]"><br><br>
+        <label for="company1">Company:</label>
+        <input type="text" id="company1" name="companies[]"><br><br>
+        <label for="tenure1">Tenure:</label>
+        <input type="text" id="tenure1" name="tenures[]"><br><br>
+        <label for="location1">Location:</label>
+        <input type="text" id="location1" name="locations[]"><br><br>
+        <label for="responsibilities1">Additional notes:</label>
+        <textarea  id="responsibilities1" name="responsibilities[]" rows="4" cols="50"></textarea><br><br>
     `;
-    document.getElementById('experience-container').appendChild(experienceDiv);
+    document.getElementById('Experience').appendChild(experienceDiv);
 }
 let skillCount = 1;
 function addSkill() {
