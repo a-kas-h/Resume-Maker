@@ -6,6 +6,8 @@
     <title>Form</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="module" src="EBGaramond-VariableFont_wght-normal.js"></script>
 </head>
 <body>
     <h1>Resume Maker</h1>
@@ -100,7 +102,7 @@
             <button type="button" onclick="addLanguage()">Add</button><br><br>
             <div class="nav-buttons">
                 <button type="button" onclick="previousSection()">Previous</button>
-                <button type="submit">Submit</button>
+                <button type="button" id="submitBtn">Submit</button>
                 <input type="reset" value="Clear all fields">
             </div>
         </div>

@@ -111,7 +111,7 @@ function addSkill() {
 
 function addEducation() {
     const eduDiv = document.createElement('div');
-    eduDiv.innerHTML = `
+    eduDiv.innerHTML =` 
             <p>___________________________________________________________________<p>
             <label for="degree">Degree:</label>
             <input type="text" id="degree" required><br><br>
@@ -127,7 +127,7 @@ function addEducation() {
 
 function addLanguage() {
     const langDiv = document.createElement('div');
-    langDiv.innerHTML = `
+    langDiv.innerHTML =`
             <p>___________________________________________________________________<p>
             <label for="language">Language spoken:</label>
             <input type="text" id="language" required><br><br>
@@ -137,10 +137,98 @@ function addLanguage() {
                 <option value="professional proficiency">professional proficiency</option>
                 <option value="ltd proficiency">limited working proficiency</option>
                 <option value="elementary">elementary proficiency</option>
-            </select><br><br><br>`;
+            </select><br><br><br>
+        `;
     document.getElementById('languages-container').appendChild(langDiv);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     showSection(currentSection);
+    document.getElementById('submitBtn').addEventListener('click', (event) => {
+        if (validateSection(currentSection)) {
+            generatePDF(event);
+        }
+    });
 });
+
+// Assume the font has been loaded and is available as 'myFont'
+function generatePDF(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Set font
+    ///doc.addFileToVFS("Garamond.ttf", font);
+    ///doc.addFont("Garamond.ttf", "Garamond", "normal");
+    ///doc.setFont("Garamond");
+
+    // Helper function to add text
+    function addText(text, x, y, size = 12, style = 'normal') {
+        doc.setFontSize(size);
+        doc.setFont("MyFont", style);
+        doc.text(text, x, y);
+    }
+
+    // Personal Information
+    addText(document.getElementById('name').value, 10, 20, 18, 'bold');
+    addText(document.getElementById('Country').value + ' | P: ' + document.getElementById('phone').value + ' | ' + document.getElementById('email').value, 10, 30);
+    addText(document.getElementById('li').value + ' | ' + document.getElementById('gh').value, 10, 40);
+
+    // Education
+    addText('EDUCATION', 10, 55, 14, 'bold');
+    let yPos = 65;
+    document.querySelectorAll('#education-container > div').forEach((edu, index) => {
+        addText(edu.querySelector('[id^="university"]').value, 10, yPos, 12, 'bold');
+        addText(edu.querySelector('[id^="degree"]').value + ', GPA: ' + edu.querySelector('[id^="gpa"]').value, 10, yPos + 5);
+        addText(edu.querySelector('[id^="years"]').value, 160, yPos, 10);
+        yPos += 15;
+    });
+
+    // Work Experience
+    addText('WORK EXPERIENCE', 10, yPos + 10, 14, 'bold');
+    yPos += 20;
+    document.querySelectorAll('#experience-container > div').forEach((exp, index) => {
+        addText(exp.querySelector('[name="company"]').value, 10, yPos, 12, 'bold');
+        addText(exp.querySelector('[name="jobTitle"]').value, 10, yPos + 5, 12, 'italic');
+        addText(exp.querySelector('[name="tenure"]').value, 160, yPos, 10);
+        
+        const responsibilities = exp.querySelector('[name="responsibilities"]').value.split('\n');
+        responsibilities.forEach((resp, i) => {
+            addText('• ' + resp, 15, yPos + 15 + (i * 5), 10);
+        });
+        
+        yPos += 25 + (responsibilities.length * 5);
+    });
+
+    // Projects
+    addText('PROJECTS', 10, yPos + 10, 14, 'bold');
+    yPos += 20;
+    // Add your projects here. Since the form doesn't have a projects section, 
+    // you might want to add this to your form or use placeholder text.
+
+    // Skills
+    addText('SKILLS', 10, yPos + 10, 14, 'bold');
+    yPos += 20;
+    let skills = '';
+    document.querySelectorAll('#skills-container input').forEach((skill, index) => {
+        skills += skill.value + ', ';
+    });
+    addText('Technical Skills: ' + skills.slice(0, -2), 10, yPos, 10);
+
+    // Languages
+    yPos += 10;
+    addText('Languages:', 10, yPos, 10, 'bold');
+    let languages = '';
+    document.querySelectorAll('#languages-container > div').forEach((lang, index) => {
+        languages += lang.querySelector('[id^="language"]').value + ' (' + 
+                     lang.querySelector('[id^="proficiency"]').value + '), ';
+    });
+    addText(languages.slice(0, -2), 35, yPos, 10);
+
+    // Save the PDF
+    doc.save('resume.pdf');
+}
+
+// Add event listener to form submission
+document.querySelector('form').addEventListener('submit', generatePDF);
